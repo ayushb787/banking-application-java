@@ -102,32 +102,39 @@ public class Main {
         boolean running = true;
         while (running) {
             System.out.println("\n");
-            System.out.println("1. Check Bank Balance");
-            System.out.println("2. Fetch Account Statement");
-            System.out.println("3. Deposit Amount");
-            System.out.println("4. Withdraw Amount");
-            System.out.println("5. Add Monthly Interest to Account");
-            System.out.println("6. Exit");
+            System.out.println("Hello " + loggedUser.name + ",");
+            System.out.println("    1. Check Bank Balance");
+            System.out.println("    2. Fetch Account Statement");
+            System.out.println("    3. Deposit Amount");
+            System.out.println("    4. Withdraw Amount");
+            System.out.println("    5. Add Monthly Interest to Account (@0.05% for savings accounts)");
+            System.out.println("    6. Exit");
             String code = scanner.nextLine();
 
             switch (code) {
                 case "1":
+                    System.out.print("\n");
                     m.fetchBankBalance(loggedUser);
                     break;
                 case "2":
+                    System.out.print("\n");
                     ua.generateStatement(loggedUser);
                     break;
                 case "3":
+                    System.out.print("\n");
                     m.depositAmount(loggedUser);
                     break;
                 case "4":
+                    System.out.print("\n");
                     m.withdrawAmount(loggedUser);
                     break;
                 case "5":
+                    System.out.print("\n");
                     ua.addMonthlyInterest(loggedUser);
                     System.out.println("Interest Added! New Balance = " + loggedUser.accountDetails.availableBalance);
                     break;
                 case "6":
+                    System.out.print("\n");
                     System.out.println("Thank you for using the Banking Application. Goodbye!");
                     running = false;
                     break;

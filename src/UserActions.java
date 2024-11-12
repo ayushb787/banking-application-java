@@ -15,10 +15,10 @@ public class UserActions {
             }
         }
 
-//        if(!UtilityFunctions.isValidEmail(email)){
-//            System.out.println("Invalid email address");
-//            return null;
-//        }
+        if(!UtilityFunctions.isValidEmail(email)){
+            System.out.println("Invalid email address");
+            return null;
+        }
 
         user.username = username;
         user.name = name;
@@ -95,9 +95,14 @@ public class UserActions {
 
     public void addMonthlyInterest(User user){
         double interestRate = 0.05;
-        user.accountDetails.availableBalance += interestRate*user.accountDetails.availableBalance;
-        addTransaction(user, "Interest Deposit", interestRate*user.accountDetails.availableBalance);
-        System.out.println("Successfully added monthly Interest rate");
+        if(Objects.equals(user.accountDetails.accountType, "Savings")){
+            user.accountDetails.availableBalance += interestRate*user.accountDetails.availableBalance;
+            addTransaction(user, "Interest Deposit", interestRate*user.accountDetails.availableBalance);
+            System.out.println("Successfully added monthly Interest rate");
+        }else {
+            System.out.println("Interest not applicable for Checking account.");
+        }
+
     }
 
 }
